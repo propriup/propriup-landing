@@ -81,8 +81,10 @@
   @keyframes drone { 0% { transform: scale(1.05) translate(2.4%, 1.4%); } 100% { transform: scale(1.22) translate(-3.2%, -2.4%); } }
   .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(83deg, rgba(14,11,7,.86) 0%, rgba(14,11,7,.6) 40%, rgba(14,11,7,.18) 70%, rgba(14,11,7,0) 90%), linear-gradient(0deg, rgba(14,11,7,.62), transparent 42%); }
   .hero-content { position: relative; z-index: 2; padding-bottom: clamp(64px, 10vh, 118px); padding-top: 140px; max-width: 800px; }
-  .hero .kicker { display: inline-flex; align-items: center; gap: 12px; color: #F0D488; margin-bottom: 22px; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
-  .hero .kicker::before { content: ""; width: 30px; height: 1px; background: #F0D488; display: inline-block; }
+  .hero .kicker { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; color: #F0D488; margin-bottom: 22px; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+  .hero .kicker::before { content: ""; width: 30px; height: 1px; background: #F0D488; display: inline-block; flex: 0 0 auto; }
+  .hero-kicker-label { white-space: nowrap; }
+  .hero-kicker-sep { opacity: .7; }
   .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.6rem); line-height: 1.08; letter-spacing: -.015em; margin: 0 0 24px; text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
   .hero p { font-size: clamp(1.05rem, 1.5vw, 1.26rem); color: rgba(255,255,255,.94); max-width: 50ch; margin: 0 0 34px; font-weight: 300; text-shadow: 0 1px 16px rgba(0,0,0,.45); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
@@ -346,7 +348,7 @@
     <div class="hero-img" style="background-image:url('assets/image-03.jpg')" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-content">
-      <p class="kicker">Conciergerie Airbnb · Location courte durée · Vallée du Rhône</p>
+      <p class="kicker"><span class="hero-kicker-label">Conciergerie Airbnb</span><span class="hero-kicker-sep" aria-hidden="true">·</span><span class="hero-kicker-label">Location courte durée</span><span class="hero-kicker-sep" aria-hidden="true">·</span><span class="hero-kicker-label">Vallée du Rhône</span></p>
       <h1>Votre conciergerie de prestige, entre vignes et Rhône.</h1>
       <p>Nous gérons votre location courte durée de A à Z — annonce, voyageurs, ménage, revenus — à Tain-l'Hermitage, Tournon-sur-Rhône et alentours. Vous gardez votre bien ; nous nous occupons de tout.</p>
       <div class="hero-actions">
