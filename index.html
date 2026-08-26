@@ -682,16 +682,21 @@
     var form = document.getElementById('enquiry');
     var wrap = form ? form.parentElement : null;
     if (!form) return;
-    var FORMSPREE = "https://formspree.io/f/REMPLACER_PAR_TON_ID";
-    function done(){ wrap.classList.add('is-sent'); wrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    var WA = '33752636236';
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      if (FORMSPREE.indexOf('REMPLACER') !== -1) { done(); return; }
-      var btn = form.querySelector('button[type=submit]'); if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
-      fetch(FORMSPREE, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (r) { if (r.ok) done(); else throw 0; })
-        .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Recevoir mon estimation'; } alert('Une erreur est survenue. Contactez-nous directement au 07 52 63 62 36.'); });
+      var f = new FormData(form);
+      var msg = 'Bonjour propri.Up, je souhaite une estimation de mes revenus locatifs.\n'
+        + 'Commune : ' + (f.get('commune') || '') + '\n'
+        + 'Type de bien : ' + (f.get('bien') || '') + '\n'
+        + 'Nom : ' + (f.get('prenom') || '') + ' ' + (f.get('nom') || '') + '\n'
+        + 'Email : ' + (f.get('email') || '') + '\n'
+        + 'Telephone : ' + (f.get('tel') || '') + '\n'
+        + 'Projet : ' + (f.get('msg') || '-');
+      window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank');
+      wrap.classList.add('is-sent');
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   })();
 </script>
