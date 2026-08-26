@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>propri.Up — Conciergerie de prestige · Tain-l'Hermitage & Tournon-sur-Rhône</title>
+<meta name="description" content="propri.Up, conciergerie de prestige et gestion de location courte durée à Tain-l'Hermitage, Tournon-sur-Rhône et dans la vallée du Rhône. Commission unique de 22 % TTC, tout compris. 4,6/5 sur 229 avis.">
+</head>
+<body>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #FFFFFF; --bg-2: #F7F4EC; --surface: #FFFFFF;
+    --ink: #1C1A16; --ink-soft: #5B554A; --muted: #8C8577; --line: #E6E0D2;
+    --gold: #9A7620; --gold-bright: #C4A24A; --gold-soft: #EFE7D3;
+    --serif: ui-serif, "New York", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --maxw: 1200px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 400; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 28px; }
+  .section { padding: clamp(76px, 11vw, 150px) 0; }
+  .kicker { font-size: .72rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin: 0 0 22px; }
+  .kicker.center { text-align: center; }
+  .rule { width: 54px; height: 1px; background: var(--gold); margin: 0 auto 30px; }
+  .rule.left { margin: 0 0 30px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-weight: 600; font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; padding: 16px 34px; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; transition: background .3s, color .3s, border-color .3s; border-radius: 0; }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  .btn-gold { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .btn-gold:hover { background: transparent; color: var(--gold); border-color: var(--gold); }
+  .btn-light { border-color: rgba(255,255,255,.7); color: #fff; }
+  .btn-light:hover { background: #fff; color: var(--ink); border-color: #fff; }
+  .btn:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 4px; }
+
+  .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 60; border-bottom: 1px solid transparent; transition: background .4s, border-color .4s; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 78px; }
+  .brandlink { display: inline-flex; align-items: center; }
+  .brand-logo { height: 40px; width: auto; display: block; }
+  .nav .on-light { display: none; }
+  .nav.scrolled .on-dark { display: none; }
+  .nav.scrolled .on-light { display: block; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: .76rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.85); transition: color .25s; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+  .nav-links a:hover { color: #fff; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-phone { font-size: .84rem; font-weight: 600; color: #fff; letter-spacing: .02em; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+  .nav-phone:hover { color: var(--gold-bright); }
+  .nav .btn { border-color: rgba(255,255,255,.65); color: #fff; padding: 11px 22px; }
+  .nav .btn:hover { background: #fff; color: var(--ink); }
+  .nav.scrolled { background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: saturate(160%) blur(12px); border-bottom-color: var(--line); }
+  .nav.scrolled .nav-links a { color: var(--ink-soft); text-shadow: none; }
+  .nav.scrolled .nav-links a:hover { color: var(--gold); }
+  .nav.scrolled .nav-phone { color: var(--ink); text-shadow: none; }
+  .nav.scrolled .nav-phone:hover { color: var(--gold); }
+  .nav.scrolled .btn { border-color: var(--ink); color: var(--ink); }
+  .nav.scrolled .btn:hover { background: var(--ink); color: var(--bg); }
+
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; color: #fff; overflow: hidden; }
+  .hero-img { position: absolute; inset: -9%; background-size: cover; background-position: center; z-index: 0; transform: scale(1.06); animation: drone 19s ease-in-out infinite alternate; transform-origin: 58% 48%; will-change: transform; }
+  @keyframes drone { 0% { transform: scale(1.05) translate(2.4%, 1.4%); } 100% { transform: scale(1.22) translate(-3.2%, -2.4%); } }
+  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(83deg, rgba(14,11,7,.86) 0%, rgba(14,11,7,.6) 40%, rgba(14,11,7,.18) 70%, rgba(14,11,7,0) 90%), linear-gradient(0deg, rgba(14,11,7,.62), transparent 42%); }
+  .hero-content { position: relative; z-index: 2; padding-bottom: clamp(64px, 10vh, 118px); padding-top: 140px; max-width: 800px; }
+  .hero .kicker { display: inline-flex; align-items: center; gap: 12px; color: #F0D488; margin-bottom: 22px; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+  .hero .kicker::before { content: ""; width: 30px; height: 1px; background: #F0D488; display: inline-block; }
+  .hero h1 { font-size: clamp(2.5rem, 5.6vw, 4.6rem); line-height: 1.08; letter-spacing: -.015em; margin: 0 0 24px; text-wrap: balance; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
+  .hero p { font-size: clamp(1.05rem, 1.5vw, 1.26rem); color: rgba(255,255,255,.94); max-width: 50ch; margin: 0 0 34px; font-weight: 300; text-shadow: 0 1px 16px rgba(0,0,0,.45); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+  .scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,.7); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .scroll-cue .line { width: 1px; height: 42px; background: linear-gradient(rgba(255,255,255,.7), transparent); }
+
+  .platforms { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .platforms-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 30px; padding: 24px 0; }
+  .pf-label { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .pf-names { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  .pf-names span { font-family: var(--serif); font-size: 1.05rem; color: var(--ink-soft); }
+
+  .manifesto { text-align: center; }
+  .manifesto .lead { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.35rem); line-height: 1.4; letter-spacing: -.01em; max-width: 20ch; margin: 0 auto; color: var(--ink); }
+  .manifesto .lead em { font-style: italic; color: var(--gold); }
+  .manifesto .sub { max-width: 62ch; margin: 30px auto 0; color: var(--ink-soft); font-weight: 300; }
+
+  .sim { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,80px); align-items: center; }
+  .sim-copy h2 { font-size: clamp(1.9rem,3.6vw,2.7rem); line-height:1.12; letter-spacing:-.015em; margin:0 0 18px; }
+  .sim-copy p { color:var(--ink-soft); font-weight:300; margin:0 0 28px; max-width:42ch; }
+  .sim-card { border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 30px 60px -40px rgba(28,26,22,.35); }
+  .sim-fields { padding: 28px 30px; display:grid; gap:20px; }
+  .sim-fields .fld label b { color:var(--gold); letter-spacing:0; text-transform:none; }
+  .sim-fields input[type=range]{ width:100%; accent-color: var(--gold); margin-top:4px; }
+  .sim-result { background:#1C1A16; color:#F4EFE4; padding:30px; text-align:center; }
+  .sim-label { font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:#B7AF9C; }
+  .sim-amount { font-family:var(--serif); font-size: clamp(2.4rem,4.5vw,3.3rem); color:var(--gold-bright); line-height:1.1; margin:8px 0 6px; }
+  .sim-amount em { font-style:normal; font-size:.42em; color:#D9D2C2; }
+  .sim-month { color:#D9D2C2; font-size:.95rem; }
+  .sim-month b { color:#fff; }
+  .sim-note { margin-top:16px; font-size:.76rem; color:#9A927E; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 84px); align-items: center; }
+  .split.reverse .split-media { order: 2; }
+  .split-media { position: relative; overflow: hidden; }
+  .split-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.16,.7,.3,1); aspect-ratio: 4 / 5; }
+  .split-media:hover img { transform: scale(1.05); }
+  .split-media .frame { position: absolute; inset: 14px; border: 1px solid rgba(255,255,255,.5); pointer-events: none; }
+  .split h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.14; letter-spacing: -.015em; margin: 0 0 22px; }
+  .split p { color: var(--ink-soft); font-weight: 300; margin: 0 0 22px; }
+  .founder-q { font-family: var(--serif); font-size: clamp(1.35rem, 2.4vw, 1.85rem); line-height: 1.5; letter-spacing: -.01em; color: var(--ink); margin: 0 0 26px; }
+  .founder-sign { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin: 0; }
+  .founder-sign b { display: block; font-family: var(--serif); font-size: 1.15rem; letter-spacing: 0; text-transform: none; color: var(--ink); margin-top: 4px; }
+  .founder-wrap { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .presta-head { text-align: center; max-width: 640px; margin: 0 auto clamp(50px, 7vw, 80px); }
+  .presta-head h2 { font-size: clamp(2rem, 3.9vw, 2.95rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+  .presta-head p { color: var(--ink-soft); font-weight: 300; margin: 0; }
+  .presta-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; padding: clamp(40px, 6vw, 70px) 0; border-top: 1px solid var(--line); }
+  .presta-row .p-copy { max-width: 30rem; }
+  .presta-row .p-num { font-family: var(--serif); font-size: 1rem; color: var(--gold); letter-spacing: .1em; margin-bottom: 16px; }
+  .presta-row .p-num b { font-size: 2.6rem; display: block; line-height: 1; margin-bottom: 6px; }
+  .presta-row h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.14; letter-spacing: -.015em; margin: 0 0 16px; }
+  .presta-row p { color: var(--ink-soft); font-weight: 300; margin: 0; font-size: 1.05rem; }
+  .presta-row .p-media { position: relative; overflow: hidden; }
+  .presta-row .p-media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; transition: transform 1.3s cubic-bezier(.16,.7,.3,1); }
+  .presta-row:hover .p-media img { transform: scale(1.05); }
+  .presta-row:nth-child(even) .p-media { order: -1; }
+
+  .pricing { text-align: center; }
+  .pricing-head { max-width: 640px; margin: 0 auto 48px; }
+  .pricing-head h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+  .pricing-head p { color: var(--ink-soft); font-weight: 300; margin: 0; }
+  .price-big { font-family:var(--serif); margin: 6px 0 8px; line-height:1; }
+  .price-big b { font-size: clamp(3rem,6vw,4.4rem); color:var(--gold); }
+  .price-big span { font-size:1.2rem; color:var(--ink-soft); letter-spacing:.1em; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); max-width: 960px; margin: 0 auto 34px; }
+  .pr-item { background: var(--surface); padding: 26px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .pr-item .c { color: var(--gold); }
+  .pr-item b { font-family: var(--serif); font-weight: 400; font-size: 1.02rem; }
+  .pricing-note { color: var(--ink-soft); font-weight: 300; margin: 0; }
+  .pricing-note a { color: var(--gold); border-bottom: 1px solid var(--gold-soft); }
+
+  .band { position: relative; min-height: 74vh; display: grid; place-items: center; text-align: center; color: #fff; overflow: hidden; }
+  .band-img { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
+  .band-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(14,12,8,.52); }
+  .band-content { position: relative; z-index: 2; max-width: 820px; padding: 40px 28px; }
+  .band-content .kicker { color: #F0D488; }
+  .band-content blockquote { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1.3; margin: 0; letter-spacing: -.01em; font-style: italic; text-wrap: balance; }
+
+  .terroir-head { text-align: center; max-width: 640px; margin: 0 auto clamp(44px, 6vw, 64px); }
+  .terroir-head h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+  .terroir-head p { color: var(--ink-soft); font-weight: 300; margin: 0; }
+  .terroir { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.4vw, 28px); }
+  .terroir-card .ph { position: relative; overflow: hidden; aspect-ratio: 3 / 4; margin-bottom: 20px; }
+  .terroir-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.3s cubic-bezier(.16,.7,.3,1); }
+  .terroir-card:hover .ph img { transform: scale(1.06); }
+  .terroir-card .ph .n { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--serif); font-style: italic; color: #fff; font-size: 1rem; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+  .terroir-card .lbl { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .terroir-card h3 { font-size: 1.28rem; margin: 0 0 8px; letter-spacing: -.01em; }
+  .terroir-card p { margin: 0; color: var(--ink-soft); font-weight: 300; font-size: .92rem; }
+
+  .tl-head { text-align: center; max-width: 620px; margin: 0 auto clamp(50px, 6vw, 74px); }
+  .tl-head h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.1; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+  .timeline { position: relative; max-width: 920px; margin: 0 auto; }
+  .timeline .spine { position: absolute; left: 50%; top: 6px; bottom: 6px; width: 2px; background: var(--line); transform: translateX(-50%); overflow: hidden; }
+  .timeline .spine .fill { position: absolute; left: 0; top: 0; width: 100%; height: 0; background: var(--gold); transition: height .1s linear; }
+  .tl-item { position: relative; width: 50%; padding: 22px 54px 40px; }
+  .tl-item:nth-child(odd) { text-align: right; }
+  .tl-item:nth-child(even) { margin-left: 50%; }
+  .tl-node { position: absolute; top: 26px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); border: 2px solid var(--gold); z-index: 2; }
+  .tl-item:nth-child(odd) .tl-node { right: -8px; }
+  .tl-item:nth-child(even) .tl-node { left: -8px; }
+  .tl-num { font-family: var(--serif); color: var(--gold); font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; }
+  .tl-item h3 { font-size: 1.5rem; margin: 8px 0 10px; letter-spacing: -.01em; }
+  .tl-item p { margin: 0; color: var(--ink-soft); font-weight: 300; }
+
+  .rev-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+  .rev-head h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: balance; }
+  .rev-sumwrap { text-align: center; margin-bottom: 52px; }
+  .rev-summary { display: inline-flex; align-items: center; gap: 18px; padding: 16px 26px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+  .rev-summary .score { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--ink); }
+  .rev-stars { color: #E7B10A; letter-spacing: 2px; }
+  .rev-count { font-size: .82rem; color: var(--ink-soft); margin-top: 6px; display: flex; align-items: center; gap: 7px; }
+  .starbar { position: relative; display: inline-block; font-size: 1.05rem; letter-spacing: 2px; line-height: 1; }
+  .starbar .bg { color: #D8D2C4; }
+  .starbar .fg { position: absolute; left: 0; top: 0; color: #E7B10A; overflow: hidden; white-space: nowrap; width: var(--pct, 100%); }
+  .rev-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .rev { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 22px 22px 24px; display: flex; flex-direction: column; }
+  .rev-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .rev-av-img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
+  .rev-id { flex: 1; min-width: 0; }
+  .rev-id b { display: block; font-size: .92rem; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rev-id span { font-size: .76rem; color: var(--muted); }
+  .rev-g { flex: 0 0 auto; }
+  .rev .rev-stars { font-size: .92rem; margin-bottom: 10px; }
+  .rev-txt { margin: 0; font-size: .92rem; color: var(--ink-soft); line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+  .rev-more-line { text-align: center; margin-top: 46px; font-size: 1.05rem; color: var(--ink); }
+  .rev-more-line .rev-stars { font-size: 1rem; margin-right: 8px; }
+  .rev-more-line b { font-weight: 600; }
+
+  .faq-wrap { background: var(--bg-2); border-top: 1px solid var(--line); }
+  .faq-head { text-align: center; max-width: 620px; margin: 0 auto clamp(40px,5vw,60px); }
+  .faq-head h2 { font-size: clamp(2rem, 3.8vw, 2.9rem); line-height: 1.1; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  .faq-item { border-top: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 4px; font-family: var(--serif); font-size: 1.18rem; color: var(--ink); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .pm { flex: 0 0 auto; width: 22px; height: 22px; position: relative; }
+  .faq-item summary .pm::before, .faq-item summary .pm::after { content: ""; position: absolute; background: var(--gold); left: 3px; right: 3px; top: 10px; height: 2px; transition: transform .25s; }
+  .faq-item summary .pm::after { transform: rotate(90deg); }
+  .faq-item[open] summary .pm::after { transform: rotate(0); }
+  .faq-item > p { margin: 0 4px 24px; color: var(--ink-soft); font-weight: 300; max-width: 70ch; }
+
+  .contact-wrap { background: var(--bg-2); border-top: 1px solid var(--line); }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(44px, 7vw, 100px); align-items: start; }
+  .contact-intro h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 22px; }
+  .contact-intro p { color: var(--ink-soft); font-weight: 300; margin: 0 0 34px; max-width: 42ch; }
+  .contact-detail { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .contact-detail:last-of-type { border-bottom: 1px solid var(--line); }
+  .contact-detail .l { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .contact-detail .v { font-family: var(--serif); font-size: 1.15rem; }
+  form.enquiry { display: grid; gap: 26px; }
+  .fld { display: grid; gap: 8px; }
+  .fld.row { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .fld label { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .fld input, .fld select, .fld textarea { font: inherit; font-size: 1rem; color: var(--ink); background: transparent; border: none; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 2px; transition: border-color .25s; }
+  .fld textarea { resize: vertical; min-height: 46px; }
+  .fld input::placeholder, .fld textarea::placeholder { color: var(--muted); opacity: .7; }
+  .fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-bottom-color: var(--gold); }
+  .fld select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%); background-position: right 4px center, right 0 center; background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; padding-right: 24px; }
+  form.enquiry .btn { width: 100%; margin-top: 6px; }
+  .enquiry-note { font-size: .78rem; color: var(--muted); text-align: center; margin: 0; }
+  .enquiry-success { display: none; padding: 30px 0; }
+  .enquiry-success .em { color: var(--gold); font-family: var(--serif); font-size: 1.6rem; margin: 0 0 10px; }
+  .enquiry-success p { color: var(--ink-soft); margin: 0; }
+  .is-sent form.enquiry { display: none; }
+  .is-sent .enquiry-success { display: block; }
+
+  footer { background: var(--bg); padding: 70px 0 40px; border-top: 1px solid var(--line); }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding-bottom: 44px; border-bottom: 1px solid var(--line); }
+  .foot-logo { height: 52px; width: auto; display: block; margin-bottom: 2px; }
+  .foot-brand p { color: var(--ink-soft); font-weight: 300; margin: 20px 0 0; max-width: 38ch; }
+  .foot-col h4 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+  .foot-col a, .foot-col span { display: block; color: var(--ink-soft); padding: 5px 0; font-weight: 300; }
+  .foot-col a:hover { color: var(--gold); }
+  .foot-bar { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 26px; color: var(--muted); font-size: .8rem; }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.16,.7,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); color: var(--ink); padding: 10px 16px; z-index: 100; border: 1px solid var(--line); }
+  .skip:focus { left: 16px; }
+  .mobile-cta { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto; }
+    .hero-img { animation: none; transform: none; inset: 0; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .split-media:hover img, .terroir-card:hover .ph img, .presta-row:hover .p-media img { transform: none; }
+    .timeline .spine .fill { transition: none; }
+  }
+  @media (max-width: 980px) { .rev-grid { grid-template-columns: repeat(2, 1fr); } .terroir { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) {
+    .split, .contact, .sim { grid-template-columns: 1fr; gap: 40px; }
+    .split.reverse .split-media { order: 0; }
+    .split-media img { aspect-ratio: 3 / 2; }
+    .presta-row { grid-template-columns: 1fr; gap: 30px; }
+    .presta-row:nth-child(even) .p-media { order: 0; }
+    .presta-row .p-media img { aspect-ratio: 3 / 2; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links, .nav-phone { display: none; }
+    .timeline .spine { left: 15px; }
+    .tl-item { width: 100%; margin-left: 0 !important; text-align: left !important; padding: 6px 0 34px 44px; }
+    .tl-item .tl-node { left: 8px !important; right: auto !important; }
+    .foot-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .mobile-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; justify-content: center; align-items: center; background: var(--gold); color: #fff; font-family: var(--sans); font-weight: 600; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; padding: 16px; }
+    body { padding-bottom: 56px; }
+  }
+  @media (max-width: 560px) {
+    .rev-grid, .terroir, .pricing-grid { grid-template-columns: 1fr; }
+    .fld.row { grid-template-columns: 1fr; }
+    .foot-top { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .nav .btn { display: none; }
+  }
+
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap: clamp(28px,4vw,56px); }
+  .pillar { text-align:center; }
+  .pillar .pi { width:52px; height:52px; margin:0 auto 18px; border-radius:50%; border:1px solid var(--gold); color:var(--gold); display:grid; place-items:center; }
+  .pillar h3 { font-size:1.4rem; margin:0 0 10px; letter-spacing:-.01em; }
+  .pillar p { margin:0; color:var(--ink-soft); font-weight:300; }
+  @media (max-width:760px){ .pillars{ grid-template-columns:1fr; gap:34px; } }
+
+  .pricing-wrap { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .pr-item { gap: 12px; }
+  .pr-item .c { width: 36px; height: 36px; border-radius: 50%; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; }
+  .pr-item .c svg { width: 18px; height: 18px; }
+  .price-big b { font-size: clamp(3.4rem, 7vw, 5rem); }
+  .pricing .btn { margin-top: 30px; }
+  .platforms { padding: 42px 0; }
+  .platforms .pf-label { display: block; text-align: center; margin: 0 0 24px; }
+  .pf-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 44px; }
+  .pf-logo { font-family: var(--sans); font-weight: 700; font-size: clamp(1.35rem, 2.4vw, 1.85rem); letter-spacing: -.02em; display: inline-flex; align-items: center; gap: 6px; line-height: 1; }
+  .pf-logo svg { width: clamp(22px, 3vw, 28px); height: auto; }
+  .pf-airbnb { color: #FF385C; } .pf-booking { color: #003580; } .pf-abritel { color: #0A5FA6; } .pf-vrbo { color: #1D6FE0; } .pf-expedia { color: #00355F; }
+  @media (max-width:600px){ .pf-logos{ gap: 14px 28px; } }
+</style>
+
+<a class="skip" href="#contact">Aller au formulaire de contact</a>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brandlink" href="#top" aria-label="propri.Up, accueil"><img class="brand-logo on-dark" src="assets/logo-01.png" alt="propri.Up"><img class="brand-logo on-light" src="assets/logo-02.png" alt="propri.Up"></a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#services">Prestations</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#terroir">Art de vivre</a>
+      <a href="#approche">Approche</a>
+      <a href="#avis">Avis</a>
+    </nav>
+    <div class="nav-right"><a class="nav-phone" href="tel:+33752636236">07 52 63 62 36</a><a class="btn" href="#contact">Estimation</a></div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-img" style="background-image:url('assets/image-03.jpg')" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="kicker">Conciergerie Airbnb · Location courte durée · Vallée du Rhône</p>
+      <h1>Votre conciergerie de prestige, entre vignes et Rhône.</h1>
+      <p>Nous gérons votre location courte durée de A à Z — annonce, voyageurs, ménage, revenus — à Tain-l'Hermitage, Tournon-sur-Rhône et alentours. Vous gardez votre bien ; nous nous occupons de tout.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#contact">Estimer mes revenus locatifs</a>
+        <a class="btn btn-light" href="#services">Découvrir la conciergerie</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span>Défiler</span><span class="line"></span></div>
+  </section>
+
+  <section class="platforms">
+    <div class="container">
+      <span class="pf-label">Votre bien diffusé sur les plus grandes plateformes</span>
+      <div class="pf-logos">
+        <span class="pf-logo pf-airbnb"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 1.33c-2.4 0-4 2.05-5.5 5.06C7.9 11.6 5.2 17.3 5.2 21c0 3.4 2.5 5.67 5.5 5.67 1.8 0 3.6-.9 5.3-3 1.7 2.1 3.5 3 5.3 3 3 0 5.5-2.27 5.5-5.67 0-3.7-2.7-9.4-5.3-14.61C20 3.38 18.4 1.33 16 1.33zm0 2.67c1.3 0 2.4 1.5 3.7 4.2 2.4 4.9 4.9 10.2 4.9 12.8 0 2-1.4 3-2.9 3-1.2 0-2.5-.7-3.9-2.6 2-2.8 3.3-5.4 3.3-7.4 0-2.9-2.2-5-5.1-5s-5.1 2.1-5.1 5c0 2 1.3 4.6 3.3 7.4-1.4 1.9-2.7 2.6-3.9 2.6-1.5 0-2.9-1-2.9-3 0-2.6 2.5-7.9 4.9-12.8C13.6 5.5 14.7 4 16 4zm0 7.33c1.4 0 2.4 1 2.4 2.34 0 1.2-.9 3-2.4 5-1.5-2-2.4-3.8-2.4-5 0-1.34 1-2.34 2.4-2.34z"/></svg>airbnb</span>
+        <span class="pf-logo pf-booking">Booking.com</span>
+        <span class="pf-logo pf-abritel">abritel</span>
+        <span class="pf-logo pf-vrbo">Vrbo</span>
+        <span class="pf-logo pf-expedia">Expedia</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section manifesto" id="maison">
+    <div class="container">
+      <div class="rule reveal"></div>
+      <p class="kicker center reveal">La maison propri.Up</p>
+      <p class="lead reveal">Une conciergerie <em>haute couture</em> pour propriétaires exigeants.</p>
+      <p class="sub reveal">Nous prenons soin d'un nombre limité de biens d'exception, en location courte durée, entre Tain-l'Hermitage et Tournon-sur-Rhône. Votre bien est traité comme une adresse unique : gestion irréprochable, voyageurs choyés, revenus optimisés — sans que vous ayez à vous en soucier.</p>
+    </div>
+  </section>
+
+  
+
+    <section class="section" style="padding-bottom:0">
+    <div class="container pillars">
+      <div class="pillar reveal"><div class="pi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div><h3>Plus de revenus</h3><p>La location courte durée, bien gérée, rapporte sensiblement plus que la location classique — sans que vous leviez le petit doigt.</p></div>
+      <div class="pillar reveal"><div class="pi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Sérénité totale</h3><p>Annonce, voyageurs, ménage, incidents : on s'occupe de tout, 7j/7. Vous gardez votre bien, on prend toute la charge.</p></div>
+      <div class="pillar reveal"><div class="pi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></div><h3>100 % local</h3><p>Une équipe de la vallée du Rhône, présente sur le terrain, qui connaît vos voyageurs et votre marché.</p></div>
+    </div>
+  </section>
+
+<section class="section sim-wrap" id="simulateur">
+    <div class="container sim">
+      <div class="sim-copy reveal">
+        <div class="rule left"></div>
+        <p class="kicker">Simulateur de revenus</p>
+        <h2>Combien pourrait rapporter votre bien ?</h2>
+        <p>Une estimation instantanée de vos revenus en location courte durée dans la vallée du Rhône. Ajustez les critères — on affine ensuite ensemble, gratuitement.</p>
+        <a class="btn btn-gold" href="#contact">Obtenir une étude précise</a>
+      </div>
+      <div class="sim-card reveal">
+        <div class="sim-fields">
+          <div class="fld"><label for="sim-type">Type de bien</label>
+            <select id="sim-type"><option>Studio</option><option selected>Appartement</option><option>Maison / Villa</option></select></div>
+          <div class="fld"><label for="sim-rooms">Nombre de chambres</label>
+            <select id="sim-rooms"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5 et +</option></select></div>
+          <div class="fld"><label for="sim-city">Commune</label>
+            <select id="sim-city"><option>Tain-l'Hermitage</option><option>Tournon-sur-Rhône</option><option>Mercurol-Veaunes</option><option>Crozes-Hermitage</option><option>La Roche-de-Glun</option><option>Valence</option><option>Autre</option></select></div>
+          <div class="fld"><label for="sim-occ">Taux d'occupation visé : <b id="sim-occ-val">65 %</b></label>
+            <input type="range" id="sim-occ" min="50" max="85" step="5" value="65"></div>
+        </div>
+        <div class="sim-result">
+          <span class="sim-label">Revenus locatifs estimés</span>
+          <div class="sim-amount" id="sim-year">&#8776; &mdash; &euro;<em> / an</em></div>
+          <div class="sim-month">soit <b id="sim-month">&mdash; &euro;</b> / mois &middot; fourchette <span id="sim-range">&mdash;</span></div>
+          <div class="sim-note">Commission propri.Up : 22 % TTC, tout compris. Estimation indicative, hors charges.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="section" id="services" style="padding-top:0">
+    <div class="container">
+      <div class="presta-head">
+        <p class="kicker center reveal">Nos prestations</p>
+        <h2 class="reveal">Une conciergerie complète, de A à Z.</h2>
+        <p class="reveal">Tout est inclus dans une commission unique. Rien ne vous incombe, tout vous est rendu compte.</p>
+      </div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>01</b>Mise en valeur</div><h3>Une annonce qui donne envie.</h3><p>Reportage photo professionnel, home-staging et annonce rédigée pour séduire une clientèle haut de gamme, publiée sur Airbnb, Booking et Abritel.</p></div><div class="p-media"><img src="assets/image-04.jpg" alt="Reportage photo professionnel d'un bien"></div></div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>02</b>Relation voyageurs</div><h3>Un accueil digne d'un grand hôtel.</h3><p>Sélection des voyageurs, accueil personnalisé, remise des clés et assistance 7j/7 — à toute heure et en plusieurs langues.</p></div><div class="p-media"><img src="assets/image-05.jpg" alt="Accueil et kit de bienvenue pour les voyageurs"></div></div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>03</b>Revenus optimisés</div><h3>Le juste prix, chaque nuit.</h3><p>Tarification dynamique ajustée quotidiennement selon la saison, la demande locale et les événements de la vallée, pour maximiser vos revenus.</p></div><div class="p-media"><img src="assets/image-06.jpg" alt="Suivi des revenus et tarification dynamique"></div></div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>04</b>Ménage hôtelier</div><h3>Une propreté irréprochable.</h3><p>Entretien aux standards de l'hôtellerie de luxe, linge de maison fourni et kit d'accueil renouvelé après chaque séjour.</p></div><div class="p-media"><img src="assets/image-07.jpg" alt="Ménage hôtelier et linge de maison"></div></div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>05</b>Maintenance &amp; suivi</div><h3>Votre bien, toujours impeccable.</h3><p>Petits travaux, dépannages et coordination des artisans de confiance de la vallée : on veille sur votre propriété comme si c'était la nôtre.</p></div><div class="p-media"><img src="assets/image-08.jpg" alt="Maintenance et petits travaux"></div></div>
+      <div class="presta-row reveal"><div class="p-copy"><div class="p-num"><b>06</b>Transparence totale</div><h3>Tout voir, en temps réel.</h3><p>Reporting mensuel détaillé et suivi de vos revenus en direct, depuis une application dédiée. Aucune mauvaise surprise en fin de mois.</p></div><div class="p-media"><img src="assets/image-09.jpg" alt="Application de suivi et reporting"></div></div>
+    </div>
+  </section>
+
+  <section class="section pricing-wrap" id="tarifs">
+    <div class="container pricing">
+      <div class="pricing-head reveal">
+        <p class="kicker center">Une offre claire</p>
+        <div class="price-big"><b>22 %</b> <span>TTC</span></div>
+        <h2>Une seule commission, tout compris.</h2>
+        <p>Pas de frais d'inscription, pas de coûts cachés. Nous ne sommes rémunérés que lorsque votre bien génère des revenus — nos intérêts sont alignés avec les vôtres.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Gestion complète</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Photos professionnelles</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Annonce multi-plateformes</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Tarification dynamique</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Ménage hôtelier &amp; linge</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Voyageurs gérés 7j/7</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Maintenance &amp; suivi</b></div>
+        <div class="pr-item reveal"><span class="c" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Reporting &amp; application</b></div>
+      </div>
+      <p class="pricing-note reveal">Commission unique de 22 % TTC, tout compris. Vous ne payez rien tant que votre bien ne rapporte pas. <a href="#contact">Demandez votre estimation gratuite →</a></p>
+      <a class="btn btn-gold reveal" href="#contact">Estimer mes revenus locatifs</a>
+    </div>
+  </section>
+
+  
+
+  <section class="section" id="terroir">
+    <div class="container">
+      <div class="terroir-head">
+        <p class="kicker center reveal">L'art de vivre en Hermitage</p>
+        <h2 class="reveal">Une adresse, mille émotions à deux pas.</h2>
+        <p class="reveal">Vos voyageurs ne louent pas seulement un bien : ils découvrent l'un des plus beaux terroirs de France. Un cadre qui fait toute la différence — et la valeur de votre propriété.</p>
+      </div>
+      <div class="terroir">
+        <div class="terroir-card reveal"><div class="ph"><span class="n">01</span><img src="assets/image-10.jpg" alt="Vins de la vallée du Rhône"></div><p class="lbl">Vignobles</p><h3>Crozes-Hermitage &amp; Saint-Joseph</h3><p>Les grands crus de la vallée du Rhône — Hermitage, Crozes-Hermitage, Saint-Joseph — à faire déguster à vos hôtes.</p></div>
+        <div class="terroir-card reveal"><div class="ph"><span class="n">02</span><img src="assets/image-11.jpg" alt="Cité du Chocolat Valrhona"></div><p class="lbl">Gastronomie</p><h3>La Cité du Chocolat</h3><p>Valrhona et son chocolat d'exception, une institution née à Tain-l'Hermitage, à quelques pas de vos hôtes.</p></div>
+        <div class="terroir-card reveal"><div class="ph"><span class="n">03</span><img src="assets/image-12.jpg" alt="Train de l'Ardèche à vapeur"></div><p class="lbl">Évasion</p><h3>Le Train de l'Ardèche</h3><p>Le Mastrou et ses gorges spectaculaires : une échappée à vapeur d'un autre temps, au départ de Tournon.</p></div>
+        <div class="terroir-card reveal"><div class="ph"><span class="n">04</span><img src="assets/image-13.jpg" alt="Le Rhône et la passerelle"></div><p class="lbl">Deux rives</p><h3>Les bords du Rhône</h3><p>Deux villes, un fleuve, une passerelle historique : Tain-l'Hermitage et Tournon, reliées par l'eau et la pierre.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section founder-wrap" id="approche">
+    <div class="container">
+      <div class="tl-head">
+        <p class="kicker center reveal">Notre approche</p>
+        <h2 class="reveal">De la clé aux revenus, en toute sérénité.</h2>
+      </div>
+      <div class="timeline">
+        <div class="spine" aria-hidden="true"><span class="fill" id="tlfill"></span></div>
+        <div class="tl-item reveal"><span class="tl-node"></span><span class="tl-num">Étape 01</span><h3>Estimation &amp; 1er entretien</h3><p>On étudie votre bien, son potentiel de revenus locatifs et vos attentes — gratuitement et sans engagement.</p></div>
+        <div class="tl-item reveal"><span class="tl-node"></span><span class="tl-num">Étape 02</span><h3>Mise en scène</h3><p>Photos, annonce, tarification, linge et kit d'accueil : on prépare chaque détail avant le premier voyageur.</p></div>
+        <div class="tl-item reveal"><span class="tl-node"></span><span class="tl-num">Étape 03</span><h3>Mise en service du bien</h3><p>Mise en ligne sur toutes les plateformes et calendriers synchronisés : votre bien commence à générer des revenus.</p></div>
+        <div class="tl-item reveal"><span class="tl-node"></span><span class="tl-num">Étape 04</span><h3>Sérénité</h3><p>On gère l'intégralité des séjours. Vous suivez vos revenus, on s'occupe de tout le reste.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fondatrice">
+    <div class="container split">
+      <div class="split-media reveal"><img src="assets/image-14.jpg" style="object-position:58% 32%" alt="Céline Vey, fondatrice de propri.Up"><span class="frame"></span></div>
+      <div class="reveal">
+        <div class="rule left"></div>
+        <p class="kicker">Le mot de la fondatrice</p>
+        <blockquote class="founder-q">« Avec 15 ans d'expérience dans l'immobilier et un véritable attachement à notre territoire, j'ai eu envie de créer une conciergerie à mon image : humaine, exigeante et chaleureuse, pour prendre soin des propriétaires, valoriser notre patrimoine et faire vivre aux voyageurs des séjours authentiques et inoubliables. »</blockquote>
+        <p class="founder-sign">Fondatrice de propri.Up<b>Céline Vey</b></p>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="section" id="avis">
+    <div class="container">
+      <div class="rev-head">
+        <p class="kicker center reveal">Avis Google</p>
+        <h2 class="reveal">Ils nous recommandent.</h2>
+      </div>
+      <div class="rev-sumwrap reveal">
+        <div class="rev-summary">
+          <span class="score">4,6</span>
+          <div style="text-align:left">
+            <div class="starbar" style="--pct:92%"><span class="bg">★★★★★</span><span class="fg">★★★★★</span></div>
+            <div class="rev-count"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>Basé sur 229 avis Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="rev-grid" id="revgrid"></div>
+      <div class="rev-more-line reveal"><span class="rev-stars">★★★★★</span> et <b>+ de 200 autres avis 5 étoiles</b></div>
+    </div>
+  </section>
+
+  <section class="section faq-wrap" id="faq">
+    <div class="container faq">
+      <div class="faq-head reveal"><p class="kicker center">Questions fréquentes</p><h2>Tout ce que vous voulez savoir.</h2></div>
+      <div class="faq-list">
+        <details class="faq-item reveal"><summary>Combien coûte la conciergerie ?<span class="pm" aria-hidden="true"></span></summary><p>Une commission unique de 22 % TTC sur les revenus générés, tout compris : mise en valeur, ménage, linge, accueil et assistance. Aucun frais d'inscription ni coût caché.</p></details>
+        <details class="faq-item reveal"><summary>Comment sont fixés les prix de location ?<span class="pm" aria-hidden="true"></span></summary><p>Nous ajustons vos tarifs chaque jour selon la saison, la demande locale et les événements de la vallée, pour maximiser vos revenus tout en gardant un excellent taux d'occupation.</p></details>
+        <details class="faq-item reveal"><summary>Puis-je bloquer des dates pour moi ?<span class="pm" aria-hidden="true"></span></summary><p>Bien sûr. Votre logement reste le vôtre : vous bloquez vos dates quand vous le souhaitez, en un clic depuis l'application.</p></details>
+        <details class="faq-item reveal"><summary>Suis-je engagé sur une durée ?<span class="pm" aria-hidden="true"></span></summary><p>Non. Notre accompagnement est sans engagement de durée : vous restez libre à tout moment.</p></details>
+        <details class="faq-item reveal"><summary>Qui s'occupe des voyageurs et des urgences ?<span class="pm" aria-hidden="true"></span></summary><p>Notre équipe locale gère l'intégralité des séjours : sélection des voyageurs, accueil, remise des clés et assistance 7j/7, à toute heure.</p></details>
+        <details class="faq-item reveal"><summary>Mon logement est-il protégé ?<span class="pm" aria-hidden="true"></span></summary><p>Oui : voyageurs vérifiés, caution et états des lieux. Nous veillons sur votre bien comme si c'était le nôtre.</p></details>
+        <details class="faq-item reveal"><summary>Comment et quand suis-je payé ?<span class="pm" aria-hidden="true"></span></summary><p>Vous recevez vos revenus chaque mois, accompagnés d'un relevé détaillé et d'un suivi en temps réel depuis votre application.</p></details>
+        <details class="faq-item reveal"><summary>Dans quelles communes intervenez-vous ?<span class="pm" aria-hidden="true"></span></summary><p>Tain-l'Hermitage, Tournon-sur-Rhône, Mercurol, Crozes-Hermitage, Valence et toute la vallée du Rhône alentour.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-wrap" id="contact">
+    <div class="container contact">
+      <div class="contact-intro reveal">
+        <div class="rule left"></div>
+        <p class="kicker">Parlons de votre bien</p>
+        <h2>Estimez vos revenus locatifs, en toute confidentialité.</h2>
+        <p>Confiez-nous quelques informations : nous vous recontactons sous 24 heures avec une estimation personnalisée des revenus locatifs de votre bien.</p>
+        <div class="contact-detail"><span class="l">Téléphone</span><span class="v">07 52 63 62 36</span></div>
+        <div class="contact-detail"><span class="l">Email</span><span class="v">contact@propriup.fr</span></div>
+        <div class="contact-detail"><span class="l">Zone</span><span class="v">Tain · Tournon · vallée du Rhône</span></div>
+      </div>
+      <div class="reveal">
+        <form class="enquiry" id="enquiry" novalidate>
+          <input type="hidden" name="_subject" value="Nouvelle demande d'estimation — propri.Up">
+          <div class="fld"><label for="commune">Commune du logement</label>
+            <select id="commune" name="commune" required>
+              <option value="">Sélectionnez…</option>
+              <option>Tain-l'Hermitage</option><option>Tournon-sur-Rhône</option><option>Mercurol-Veaunes</option>
+              <option>Crozes-Hermitage</option><option>La Roche-de-Glun</option><option>Valence</option><option>Autre (vallée du Rhône)</option>
+            </select>
+          </div>
+          <div class="fld"><label for="bien">Type de bien</label>
+            <select id="bien" name="bien" required>
+              <option value="">Sélectionnez…</option>
+              <option>Studio</option><option>Appartement</option><option>Maison / Villa</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="fld row">
+            <div class="fld"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" placeholder="Camille" required></div>
+            <div class="fld"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Rivière" required></div>
+          </div>
+          <div class="fld row">
+            <div class="fld"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="camille@email.com" required></div>
+            <div class="fld"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="06 12 34 56 78" required></div>
+          </div>
+          <div class="fld"><label for="msg">Votre projet (facultatif)</label><textarea id="msg" name="msg" placeholder="Quelques mots sur votre bien…"></textarea></div>
+          <button class="btn btn-gold" type="submit">Recevoir mon estimation</button>
+          <p class="enquiry-note">Vos informations restent strictement confidentielles.</p>
+        </form>
+        <div class="enquiry-success" role="status">
+          <p class="em">Merci, votre demande est bien reçue.</p>
+          <p>Nous revenons vers vous sous 24 heures avec votre estimation personnalisée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="mobile-cta" href="#contact">Estimer mes revenus locatifs</a>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" aria-label="propri.Up, accueil"><img class="foot-logo" src="assets/logo-15.png" alt="propri.Up — Services immobiliers"></a>
+        <p>Conciergerie de prestige à Tain-l'Hermitage, Tournon-sur-Rhône et dans la vallée du Rhône. Nous gérons votre bien, vous en profitez.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Zone couverte</h4>
+        <span>Tain-l'Hermitage</span><span>Tournon-sur-Rhône</span><span>Mercurol · Crozes-Hermitage</span><span>Valence · vallée du Rhône</span>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="#contact">Estimation gratuite</a>
+        <a href="mailto:contact@propriup.fr">contact@propriup.fr</a>
+        <a href="tel:+33752636236">07 52 63 62 36</a>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© <span id="year">2026</span> propri.Up · Vallée du Rhône</span>
+      <span>Mentions légales · Confidentialité</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"propri.Up","description":"Conciergerie de prestige et gestion de location courte durée à Tain-l'Hermitage, Tournon-sur-Rhône et dans la vallée du Rhône.","telephone":"+33752636236","email":"contact@propriup.fr","priceRange":"Commission 22% TTC","areaServed":["Tain-l'Hermitage","Tournon-sur-Rhône","Mercurol","Crozes-Hermitage","Valence","Vallée du Rhône"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.6","reviewCount":"229"},"founder":{"@type":"Person","name":"Céline Vey"}}</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var REVIEWS = [
+    ["assets/image-16.jpg","Jean-Yves M.","il y a 3 mois","propri.Up gère mon appartement à Tain depuis l'estimation jusqu'aux remises de clés. Équipe sérieuse, revenus au rendez-vous et zéro souci de mon côté."],
+    ["assets/image-17.jpg","Sophie D.","il y a 3 mois","Un grand merci à toute l'équipe, toujours à l'écoute et d'une grande gentillesse. Mes voyageurs sont ravis et je suis tout depuis l'application."],
+    ["assets/image-18.jpg","Nicolas B.","il y a 4 mois","Efficacité, climat de confiance, rapidité dans la gestion. Ma maison de Tournon n'a jamais été aussi bien louée. Je recommande vivement."],
+    ["assets/image-19.jpg","Claire G.","il y a 4 mois","Une équipe présente et attentive du début à la fin. Beaucoup de patience et de professionnalisme. Un vrai partenaire de confiance."],
+    ["assets/image-20.jpg","Frédéric S.","il y a 5 mois","Un immense merci pour l'accompagnement. Suivi impeccable depuis la première visite. Une grande implication de toute l'équipe propri.Up."],
+    ["assets/image-21.jpg","Amandine R.","il y a 5 mois","Confiance totale. Transparence sur les comptes, aucune mauvaise surprise. Enfin une conciergerie sérieuse dans la vallée du Rhône."],
+    ["assets/image-22.jpg","Laurent P.","il y a 6 mois","Réactivité au top et communication parfaite. Mon bien à Mercurol est entre de très bonnes mains. Je ne peux que recommander."],
+    ["assets/image-23.jpg","Marie L.","il y a 6 mois","Service haut de gamme et vraiment humain. On sent l'amour du métier et du territoire. Mes hôtes en parlent encore. Bravo à toute l'équipe."]
+  ];
+  var G = '<svg viewBox="0 0 48 48" width="17" height="17" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>';
+  var grid = document.getElementById('revgrid');
+  if (grid) {
+    REVIEWS.forEach(function (r) {
+      var a = document.createElement('article'); a.className = 'rev reveal';
+      a.innerHTML = '<header class="rev-top"><img class="rev-av-img" src="' + r[0] + '" alt=""><span class="rev-id"><b>' + r[1] + '</b><span>' + r[2] + '</span></span><span class="rev-g">' + G + '</span></header><div class="rev-stars">★★★★★</div><p class="rev-txt">' + r[3] + '</p>';
+      grid.appendChild(a);
+    });
+  }
+
+  var nav = document.getElementById('nav');
+  function onScroll(){ if (window.scrollY > window.innerHeight * 0.7) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    els.forEach(function (e){ io.observe(e); });
+  })();
+
+  (function () {
+    var tl = document.querySelector('.timeline'), fill = document.getElementById('tlfill');
+    if (!tl || !fill) return;
+    function upd(){
+      var r = tl.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh * 0.72 - r.top) / (r.height + 1);
+      p = Math.max(0, Math.min(1, p));
+      fill.style.height = (p * 100) + '%';
+    }
+    window.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd, { passive: true }); upd();
+  })();
+
+  (function () {
+    var t = document.getElementById('sim-type'), r = document.getElementById('sim-rooms'), c = document.getElementById('sim-city'), o = document.getElementById('sim-occ');
+    if (!t) return;
+    var base = { 'Studio': 65, 'Appartement': 90, 'Maison / Villa': 150 };
+    var cityMult = { "Tain-l'Hermitage":1.05, "Tournon-sur-Rhône":1.05, "Mercurol-Veaunes":1.0, "Crozes-Hermitage":1.0, "La Roche-de-Glun":0.97, "Valence":0.98, "Autre":1.0 };
+    function fmt(n){ return Math.round(n).toLocaleString('fr-FR'); }
+    function calc(){
+      var rooms = parseInt(r.value,10) || 1;
+      var b = base[t.value] || 90;
+      var add = (t.value === 'Studio') ? 0 : 18 * Math.max(0, rooms - 1);
+      var nightly = (b + add) * (cityMult[c.value] || 1.0);
+      var occ = parseInt(o.value,10) / 100;
+      var nights = 30.4 * occ;
+      var month = nightly * nights, year = month * 12;
+      document.getElementById('sim-occ-val').textContent = o.value + ' %';
+      document.getElementById('sim-year').innerHTML = '≈ ' + fmt(Math.round(year/100)*100) + ' €<em> / an</em>';
+      document.getElementById('sim-month').textContent = fmt(Math.round(month/10)*10) + ' €';
+      document.getElementById('sim-range').textContent = fmt(Math.round(year*0.92/100)*100) + ' – ' + fmt(Math.round(year*1.08/100)*100) + ' €';
+    }
+    [t,r,c,o].forEach(function(e){ e.addEventListener('input', calc); e.addEventListener('change', calc); });
+    calc();
+  })();
+
+  (function () {
+    var form = document.getElementById('enquiry');
+    var wrap = form ? form.parentElement : null;
+    if (!form) return;
+    var FORMSPREE = "https://formspree.io/f/REMPLACER_PAR_TON_ID";
+    function done(){ wrap.classList.add('is-sent'); wrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (FORMSPREE.indexOf('REMPLACER') !== -1) { done(); return; }
+      var btn = form.querySelector('button[type=submit]'); if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+      fetch(FORMSPREE, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { if (r.ok) done(); else throw 0; })
+        .catch(function () { if (btn) { btn.disabled = false; btn.textContent = 'Recevoir mon estimation'; } alert('Une erreur est survenue. Contactez-nous directement au 07 52 63 62 36.'); });
+    });
+  })();
+</script>
+</body>
+</html>
